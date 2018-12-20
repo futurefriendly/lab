@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>A CSS Property: border-image</title>
+<style>
+*{ outline:none;}
+body{ font:14px/1.75 Arial,Helvetica,sans-serif;}
+em{ color:#999;}
+style{ font:16px/1.5 Arial,Helvetica,sans-serif;}
+p,h2{margin-bottom:20px;}
+.container{ min-width:300px; max-width:940px; padding:30px 10px; margin:0 auto;}
+.edit{ border:#eee 10px solid; margin:20px auto;}
+.demo{}
+.note{}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>A CSS Property: border-image</h1>
+<h2>Property and Value</h2>
+<p>Border-image-source: url(border.png);<br /><em>边框图片文件的路径</em></p>
+<p>Border-image-slice: number|%|fill;<br /><em>定义如何裁切图片</em></p>
+<p>Border-image-width: 1;<br /><em>图片边框的宽度向内延展的倍数</em></p>
+<p>Border-image-outset: 0;<br /><em>图片边框的宽度向外延展的倍数</em></p>
+<p>Border-image-repeat: stretch<br /><em>设置边框图片的填充方式：平铺(repeat)、铺满(round)或拉伸(stretch)</em></p>
+<h2>Demo1: Normal</h2>
+<p><img src="1.png" alt="" /><br /><em>1.png(50*108)</em></p>
+<div class="demo1">
+	<div class="demo"></div>
+	<p><em>Demo1</em></p>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	/* 分开写 */
+	.demo1 .demo{
+		height:108px;
+		border-width:0 24px;
+		border-image-source:url(1.png);
+		border-image-slice:0 24 fill;
+		border-image-width:1;
+		border-image-outset:0;
+		border-image-repeat:stretch;
+		border-style:solid;
+	}
+
+	/* 合并写 */
+	/*.demo1 .demo{
+		height:108px;
+		border-width:0 24px;
+		-webkit-border-image:url(1.png) 0 24 stretch;
+		border-style:solid;
+	}*/
+	</style>
+	</pre>
+</div>
+
+<h2>Demo2: For Retina</h2>
+<p><img src="2.png" alt="" /><br /><em>2.png(100*216)</em></p>
+<div class="demo2">
+	<div class="demo"></div>
+	<p><em>Demo2</em></p>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	/* 分开写 */
+	.demo2 .demo{
+		height:108px;
+		border-width:0 24px;
+		border-image-source:url(2.png);
+		border-image-slice:0 48 fill;
+		border-image-width:1;
+		border-image-outset:0;
+		border-image-repeat:stretch;
+		border-style:solid;
+	}
+
+	/* 合并写 */
+	/*.demo2 .demo{
+		height:108px;
+		border-width:0 24px;
+		border-image:url(2.png) 0 48 stretch;
+		border-style:solid;
+	}*/
+	</style>
+	</pre>
+</div>
+<h2>Note</h2>
+<div class="note">
+	<p>1. 合并写需要加前缀，分开写不需要加前缀</p>
+	<p>2. 无前缀的话border-image-slice需要声明fill属性，有前缀的写法则不需要声明fill</p>
+</div>
+</div>
+</body>
+</html>

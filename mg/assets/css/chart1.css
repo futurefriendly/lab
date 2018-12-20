@@ -1,0 +1,51 @@
+.chart1{ visibility:hidden; min-height:350px;
+	-webkit-transform-origin:50% 0%;
+	transform-origin:50% 0%;
+	-webkit-transform:rotateY(-20deg);
+	transform:rotateY(-20deg);
+}
+.c:after,
+.center{ background-color:#1f1a17}
+.c,
+.c:before,
+.center{ box-shadow:#1f1a17 0 0 0 5px,#1f1a17 0 0 0 5px inset; /* 圈圈间距 */}
+.c,
+.c:after{ border-color:#1f1a17;}
+.c,
+.c:before,
+.c:after{ border-style:solid;}
+.c{ position:relative; display:inline-block; border-radius:50% 50%; border-width:20px;/* 圈圈宽度20px */}
+.c:before,
+.c:after{ border-width:20px 0 20px 20px; border-radius:100% 0 0 100% / 50% 0 0 50%; content:''; position:absolute; width:50%; height:100%; top:-20px; left:-20px;
+	-webkit-animation-timing-function:linear;
+	animation-timing-function:linear;
+	-webkit-animation-iteration-count:1;
+	animation-iteration-count:1;
+	-webkit-transform-origin:100% 50%;
+	transform-origin:100% 50%;
+	-webkit-transform-style:preserve-3d;
+	transform-style:preserve-3d;
+	-webkit-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+.c:before{
+	-webkit-animation-duration:1s;
+	animation-duration:1s;
+}
+.c:after{
+	-webkit-animation-duration:.5s;
+	animation-duration:.5s;
+	-webkit-animation-timing-function:steps(1,end);
+	animation-timing-function:steps(1,end);
+}
+.center{ border-radius:50%; position:relative; z-index:999; width:150px; height:150px;
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	-webkit-box-align:center;
+	-moz-box-align:center;
+	box-align:center;
+	-webkit-box-pack:center;
+	-moz-box-pack:center;
+	box-pack:center;
+}

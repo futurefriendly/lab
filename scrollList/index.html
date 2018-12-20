@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>ScrollList</title>
+<style>
+body{ font:16px/1.5 Helvetica,Arial,sans-serif; margin:0; background:#e1e1e1; color:#333;}
+div,p,ul,li,span,h2{ margin:0; padding:0;}
+ul,li{list-style:none;}
+h2{ height:24px; line-height:24px;}
+h2 .txt{ position:relative; background:#333; font-weight:normal; font-size:16px; color:#fff; text-align:center;}
+h2 .fix{ position:fixed; top:0; left:0; width:100%;}
+.item{padding:10px 15px; border-bottom:#999 1px dotted}
+.list .item:last-child{ border-bottom:none}
+</style>
+<script src="http://zeptojs.com/zepto.min.js"></script>
+<script>
+function ac(){
+	$('h2 .txt').each(function(){
+		var topset = $(this).parent('h2').offset().top;
+		var scrollset = $(window).scrollTop();
+		if(topset <= scrollset){
+			$(this).addClass('fix');
+		}else{
+			$(this).removeClass('fix');
+		}
+	});
+}
+$(function(){
+$(window).on('scroll',ac);
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+	<h2><div class="txt">2015-5-1</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-30</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-29</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-28</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-27</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-26</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-25</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-24</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+<div class="wrap">
+	<h2><div class="txt">2015-4-22</div></h2>
+	<ul class="list">
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+		<li class="item">
+			<span class="txt">item</span>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

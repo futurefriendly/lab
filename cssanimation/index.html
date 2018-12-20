@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>运动的小滑块</title>
+<style>
+*{ outline:none;}
+body{ margin:0; font:14px/1.5 Helvetica,Arial,sans-serif;}
+em{ color:#999;}
+style{ padding:0 20px; font:14px/1.5 monospace;}
+p,h2{margin-bottom:20px;}
+.container{ min-width:300px; max-width:940px; padding:10px; margin:0 auto;}
+.edit{ border:#eee 10px solid; margin:20px auto;}
+.demo{ color:#fff;}
+.d{ width:300px; margin-bottom:10px; border-bottom:#000 10px solid}
+/* 基本样式 */
+.demo{
+width:80px;
+height:80px;
+padding:10px;
+background:#f00;
+}
+</style>
+<script src="jquery-2.0.0.min.js"></script>
+<script>
+$(function(){
+	$('.btn').click(function(){
+		$(this).siblings('.d').find('.demo').toggleClass('act');
+	});
+	$('.btn2').click(function(){
+		$(this).siblings('.d').find('.demo').toggleClass('pause');
+	});
+});
+</script>
+</head>
+<body>
+<div class="container">
+<h1>运动的小滑块 第一季 匀速直线运动</h1>
+
+<p>主角：滑1：使用animation的小滑块<br>配角：滑2：使用transition的小滑块<br>滑1和滑2公用类<code>.demo</code></p>
+
+<!-- 用transition实现运动 -->
+<h2>第1话: 用transition实现运动(lv.1)</h2>
+<p>停在右边的小滑块</p>
+<div>
+<div class="d demo1">
+	<div class="demo" style="background:#00f">滑2(lv.1)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo1 .demo.act{
+-webkit-transition:all 1s linear;
+-webkit-transform:translateX(200px);
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /用transition实现运动 -->
+
+<!-- 还是用transition实现运动 -->
+<h2>第2话: transition不规定动画，只为css属性的变化建立补间(lv.2)</h2>
+<div>
+<div class="d demo2">
+	<div class="demo" style="background:#00f">滑2(lv.2)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo2 .demo{
+-webkit-transition:all 1s linear;
+}
+.demo2 .demo.act{
+-webkit-transform:translateX(200px);
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /还是用transition实现运动 -->
+
+<!-- 用animation实现运动 -->
+<h2>第3话: 用animation实现运动(lv.1)</h2>
+<p>Q: 小滑块能不能停在右边？</p>
+<div>
+<div class="d demo3">
+	<div class="demo">滑1(lv.1)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+
+.demo3 .demo.act{
+-webkit-animation:act3 1s linear 1;
+}
+
+@-webkit-keyframes act3{
+0%{}/* 0%在android2.3.3下不能省略 */
+100%{-webkit-transform:translateX(200px)}
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /用animation实现运动 -->
+
+<!-- 再次用animation实现运动 -->
+<h2>第4话: 用animation实现第1话中transition实现的效果(lv.2)</h2>
+<p>使用animation-fill-mode (android2.3.5以下不支持)</p>
+<div>
+<div class="d demo4">
+	<div class="demo">滑1(lv.2)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo4 .demo.act{
+-webkit-animation:act4 1s linear 1;
+-webkit-animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes act4{
+0%{}
+100%{-webkit-transform:translateX(200px)}
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /再次用animation实现运动 -->
+
+<!-- 第三次用animation实现运动 -->
+<h2>第5话: animation运动中暂停(lv.3)</h2>
+<p>使用animation-fill-mode (android2.3.5以下不支持)</p>
+<div>
+<div class="d demo5">
+	<script>
+	$(function(){
+		$('.demo5').hover(function(){
+			$('.demo',this).toggleClass('pause');
+		});
+	});
+	</script>
+	<div class="demo">滑1(lv.3)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<input type="button" class="btn2" value="点击按钮toggleClass'pause'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo5 .demo.act{
+-webkit-animation:act5 2s linear infinite;
+-webkit-animation-fill-mode:forwards;
+}
+
+.demo5 .demo.pause{
+-webkit-animation-play-state:paused;
+}
+
+@-webkit-keyframes act5{
+0%,100%{}
+50%{-webkit-transform:translateX(200px)}
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /第三次用animation实现运动 -->
+
+<h1>运动的小滑块 第二季 弹性碰撞</h1>
+
+<!-- 用animation实现运动 -->
+<h2>第6话: 用animation实现运动(lv.4)</h2>
+<p>使用animation-fill-mode (android2.3.5以下不支持)</p>
+<div>
+<div class="d demo6">
+	<div class="demo">滑1(lv.4)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo6 .demo.act{
+-webkit-animation:act6 2s linear 1;
+-webkit-animation-fill-mode:forwards;
+-webkit-transform-origin:right bottom;
+}
+
+@-webkit-keyframes act6{
+0%{}
+50%{-webkit-transform:translateX(200px) rotate(0);}
+100%{-webkit-transform:translateX(0) rotate(90deg);}
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /用animation实现运动 -->
+
+<!-- 还是用transition实现运动 -->
+<h2>第7话: 试试用transition实现第6话的运动效果(lv.3)</h2>
+<div>
+<div class="d demo7">
+	<div class="demo" style="background:#00f">滑2(lv.3)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo7 .demo{
+-webkit-transition:all 1s linear;
+-webkit-transform-origin:right bottom;
+}
+.demo7 .demo.act{
+-webkit-transform:translateX(0) rotate(90deg);
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /还是用transition实现运动 -->
+
+<!-- 用animation实现运动 -->
+<h2>第8话: 让Android2.3.5实现第6话的运动效果(lv.5)</h2>
+<p>不使用animation-fill-mode</p>
+<div>
+<div class="d demo8">
+	<div class="demo">滑1(lv.5)</div>
+</div>
+<input type="button" class="btn" value="点击按钮toggleClass'act'" />
+<div class="edit">
+<code>
+<pre>
+<style style="display:block" contentEditable="true">
+.demo8 .demo.act{
+-webkit-animation:act8 2s linear 1;
+-webkit-transform-origin:right bottom;
+-webkit-transform:translateX(0) rotate(90deg);
+}
+
+@-webkit-keyframes act8{
+0%{-webkit-transform:translateX(0) rotate(0);}
+50%{-webkit-transform:translateX(200px) rotate(0);}
+100%{-webkit-transform:translateX(0) rotate(90deg);}
+}
+</style>
+</pre>
+</code>
+</div>
+</div>
+<!-- /用animation实现运动 -->
+
+<!-- 总结 -->
+<h1>总结</h1>
+<h2>1 简单动画尽量用transition</h2>
+<h2>2 分段动画只能用animation(依赖keyframes)</h2>
+<h2>3 循环动画只能用animation(依赖animation-iteration-count)</h2>
+<h2>4 H5页面尽量避免使用animation-fill-mode(兼容Android2.3.5)</h2>
+<h2>5 H5页面的keyframes中，0%,100%不能省(兼容Android2.3.3)</h2>
+<!-- /总结 -->
+
+<!-- 思考 -->
+<h1>思考</h1>
+<h2>回到第3话</h2>
+<!-- /思考 -->
+
+</div>
+</body>
+</html>

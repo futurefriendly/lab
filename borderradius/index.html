@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>border-radius</title>
+<style>
+*{ outline:none;}
+body{ font:14px/1.75 Arial,Helvetica,sans-serif;}
+em{ color:#e89b21;}
+style{ font:16px/1.5 Arial,Helvetica,sans-serif;}
+p,h2{margin-bottom:20px;}
+h2{ margin-top:100px;}
+.container{ min-width:300px; max-width:940px; padding:30px 10px; margin:0 auto;}
+.edit{ border:#eee 10px solid; margin:20px auto;}
+.demo{}
+.note{}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>A CSS Property: border-radius</h1>
+<h2>Demo1</h2>
+<div class="demo1">
+	<div class="demo"></div>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	.demo1 .demo{
+		box-sizing:border-box;
+		width:300px; height:300px;
+		border:#e89b21 50px solid;
+		border-radius:50%;
+	}
+	</style>
+	</pre>
+</div>
+
+<h2>Demo2</h2>
+<div class="demo2">
+	<div class="demo"></div>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	.demo2 .demo{
+		box-sizing:border-box;
+		width:300px; height:150px;
+		border:#e89b21 50px solid;
+		border-top:none;
+		border-radius:0 0 50% 50% / 0 0 100% 100%;
+	}
+	</style>
+	</pre>
+</div>
+
+<h2>Demo2.5</h2>
+<div class="demo2-5">
+	<div class="demo"></div>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	.demo2-5 .demo{
+		box-sizing:border-box;
+		width:300px; height:150px;
+		margin-top:200px;
+		border:#e89b21 50px solid;
+		border-top:none;
+		border-radius:0 0 50% 50% / 0 0 100% 100%;
+		animation:round 1s linear infinite;
+		transform-origin:center 0;
+	}
+	@keyframes round{
+		0%{ transform:rotateZ(0);}
+		100%{ transform:rotateZ(360deg);}
+	}
+	</style>
+	</pre>
+</div>
+
+<h2>Demo3</h2>
+<div class="demo3">
+	<div class="demo"></div>
+	<p><em>Demo3</em></p>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	.demo3 .demo{
+		box-sizing:border-box;
+		width:300px; height:200px;
+		border:#e89b21 50px solid;
+		border-radius:0 0 50% 50% / 0 0 150px 150px;
+	}
+	</style>
+	</pre>
+</div>
+
+<h2>Demo4</h2>
+<div class="demo4">
+	<div class="demo"></div>
+	<p><em>Demo4</em></p>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	.demo4 .demo{
+		position:relative;
+		box-sizing:border-box;
+		width:300px; height:240px;
+		border:#e89b21 50px solid;
+		border-radius:0 0 50% 50% / 0 0 150px 150px;
+	}
+	.demo4 .demo:after {
+		content: '';
+		position: absolute;
+		right: -50px;
+		top: -50px;
+		height: 50px;
+		width: 50px;
+		background: #fff;
+	}
+	</style>
+	</pre>
+</div>
+
+<h2>Demo5</h2>
+<div class="demo5">
+	<div class="demo"></div>
+	<p><em>Demo5</em></p>
+</div>
+<div class="edit">
+	<pre>
+	<style style="display:block" contentEditable="true">
+	.demo5 .demo{
+		position:relative;
+		box-sizing:border-box;
+		width:300px; height:240px;
+		border-radius:0 0 50% 50% / 0 0 150px 150px;
+		
+		background-color:#e89b23;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#e9a522), to(#e58414));
+		background-image: linear-gradient(top, #e9a522, #e58414); 
+		background-image: linear-gradient(to bottom, #e9a522, #e58414);
+	}
+	.demo5 .demo:before{
+		content:'';
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin:-70px 0 0 -100px;
+		width:200px;
+		height:140px;
+		border-radius:0 0 50% 50% / 0 0 100px 100px;
+		background:#fff;
+	}
+	.demo5 .demo:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 50px;
+		width: 50px;
+		background: #fff;
+	}
+	</style>
+	</pre>
+</div>
+
+<h2>Note</h2>
+<div class="note">
+	<p>Android 2.3不能使用百分比单位</p>
+</div>
+</div>
+</body>
+</html>
